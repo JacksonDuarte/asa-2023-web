@@ -41,17 +41,17 @@ services:
     build:
       context: ./dns
       dockerfile: Dockerfile
-      image: dns
-      container_name: dns
-      restart: always
-      tty: true
-      ports:
-        - "53:53/tcp"
-        - "53:53/udp"
-      volumes:
-        - ./dns/etc:/etc/bind
-      network: 
-        - asa-network
+    image: dns
+    container_name: dns
+    restart: always
+    tty: true
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./dns/etc:/etc/bind
+    networks:
+      - asa-network
 
 networks:
   asa-network:
